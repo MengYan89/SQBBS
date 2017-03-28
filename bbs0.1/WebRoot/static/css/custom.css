@@ -4,8 +4,12 @@
 			padding:0 ; /*外边距*/
 			margin:0 ; /*内边距*/
 		}
+		body{
+			background-color: #585858;
+		}
 		/*标题栏样式*/
 		.header {
+			text-align:center;
 			height: 60px;  /*高度*/
 			background: #2E2E2E; /*背景颜色*/
 		}
@@ -90,7 +94,7 @@
 		   height: 360px;/*高度*/
   		   display: inline-block;/*定义为行内块元素*/
   		   position: absolute;/*绝对定位*/
- 		   background: #7fa5ea;/*颜色*/
+ 		   background: #000000;/*颜色*/
  		   left: -60px;
  		   top: 0;
  		   opacity: 0.6;/*透明度*/
@@ -101,7 +105,7 @@
  		   height: 360px;/*高度*/
  		   display: inline-block;/*定义为行内块元素*/
  		   position: absolute;/*绝对定位*/
- 		   background: #7fa5ea;/*颜色*/
+ 		   background: #000000;/*颜色*/
  		   left: 924px;
   		   top: 0;
  		   opacity: 0.6;/*透明度*/
