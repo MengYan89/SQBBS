@@ -61,5 +61,6 @@
     <!-- 引用轮播框的js -->
     <script language="javascript" src="${basePath}/static/js/index.banner.js"></script>
     
+    <%@include file="common/footer.jsp" %>
   </body>
 </html>

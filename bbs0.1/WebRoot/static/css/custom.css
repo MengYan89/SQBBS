@@ -139,3 +139,12 @@
 		.banner .content:hover .btn_right{
             opacity: 1;
 		}
+		
+		.footer {
+			background: #2E2E2E;;
+			color: #fff ;
+			text-align: center ;
+			height: 50px ;
+			line-height:50px;
+			font-family: 微软雅黑;
+		}
