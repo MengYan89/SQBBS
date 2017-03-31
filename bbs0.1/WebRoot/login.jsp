@@ -106,18 +106,39 @@
    	  			<div class="login-box fr">
    	  				<h2>用户登陆</h2>
    	  				<div class="inputBox">
-   	  					<input type="text" id="username" autofocus="autofocus" autocomplete="off" maxlength="60" placeholder="请输入账号/邮箱/手机号">
+   	  					<input type="text" id="username"  autocomplete="on" maxlength="60" placeholder="请输入账号/邮箱/手机号">
    	  				</div>
    	  				<div class="inputBox">
-   	  					<input type="password" id="password" autofocus="autofocus" autocomplete="off" maxlength="60" placeholder="请输入密码">
+   	  					<input type="password" id="password"  autocomplete="off" maxlength="60" placeholder="请输入密码">
    	  				</div>
    	  				<div class='inputBox'>
-       					 <button class="login_btn" onclick="">登陆</button>
+       					 <button class="login_btn" onclick="login()">登陆</button>
    					 </div>
    	  			</div>
    	  		</div>
    	  	</div>
    	  </div>
+   	  
+   	  <script>
+   	  	function login(){
+   	  		var username = $('#username').val();
+   	  		var password = $('#password').val();
+   	  		
+   	  		$.ajax({
+   	  			type: "post",//请求方式
+   	  			url:"${basePath}/controller/loginController.jsp",//请求地址
+   	  			data:{"username":username,"password":password},//传递至controller的json数据
+   	  			error:function(){
+   	  				alert("登陆出错");
+   	  			},
+   	  			success: function(data){//返回成功执行回调函数
+   	  			}
+   	  		});
+
+
+   	  		
+   	  	}
+   	  </script>
    	  
    	  <%@include file="common/footer.jsp" %>
   </body>
