@@ -16,7 +16,7 @@ public class TableUtils {
 		//获取表名
 		Table table = (Table)clazz.getAnnotation(Table.class);
 		String tableName = table.tableName();
-		sb.append(tableName).append("{\n");
+		sb.append(tableName).append("(\n");
 		
 		Field[] fields = clazz.getDeclaredFields();
 		String primaryKey = "";
