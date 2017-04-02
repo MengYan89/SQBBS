@@ -12,10 +12,11 @@ public class TableUtils {
 	public static String getCreateTableSQL(Class<?> clazz){
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append("create table ");
 		//获取表名
 		Table table = (Table)clazz.getAnnotation(Table.class);
 		String tableName = table.tableName();
+		sb.append("DROP TABLE IF EXISTS ").append(tableName).append(";\n");
+		sb.append("create table ");
 		sb.append(tableName).append("(\n");
 		
 		Field[] fields = clazz.getDeclaredFields();

@@ -5,7 +5,7 @@ import annotation.Table;
 
 @Table(tableName = "t_user")
 public class User {
-	@Member(type = "varchar(30)" ,field = "id" ,primaryKey = true ,defaultNull = false)
+	@Member(type = "varchar(100)" ,field = "id" ,primaryKey = true ,defaultNull = false)
 	private String id;    //主键，采用UUID
 	
 	@Member(type = "VARCHAR(20)", field = "username")

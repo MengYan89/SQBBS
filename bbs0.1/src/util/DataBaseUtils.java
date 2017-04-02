@@ -7,6 +7,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
+
 public class DataBaseUtils {
 	private static String username ;
 	private static String password ;
@@ -53,6 +56,53 @@ public class DataBaseUtils {
 	    }
 	    return connection;
 	}
+	
+	/*
+	 * 关闭资源
+	 * @param connection
+	 * @param statement
+	 * @param set
+	 */
+	
+	public static void closeConnection(Connection connection,PreparedStatement statement,ResultSet set){
+		try {
+			if(connection != null) connection.close();
+			if(statement != null) statement.close();
+			if(set != null) set.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.fillInStackTrace();
+		}
+	}
+	
+	/*
+	 * 数据库操作
+	 * @param sql
+	 * @param objects
+	 * 
+	 */
+	
+	public static void update(String sql,Object...objects){
+		Connection connection = getConnection();
+		PreparedStatement statement = null;
+		try {
+			statement = (PreparedStatement) connection.prepareStatement(sql);
+			for(int i = 0 ; i < objects.length ; i++){
+				statement.setObject(i+1, objects[i]);
+			}
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			closeConnection(connection, statement, null);
+		}
+	}
+	
+	
+	
 	
 
 }
