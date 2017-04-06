@@ -21,6 +21,7 @@
    	  <!-- header导航页面  -->
    	  <%@include file="common/header.jsp" %>
    	  <!-- 轮播框  -->
+   	  <div class="content">
    	   <div class="banner">
     	<div class='content'>
     		<ul>
@@ -57,6 +58,7 @@
     		<span class='banner_left'><i class='btn_left'></i></span>
 			<span class='banner_right'><i class='btn_right'></i></span>
     	</div>
+    </div>
     </div>
     <!-- 引用轮播框的js -->
     <script language="javascript" src="${basePath}/static/js/index.banner.js"></script>

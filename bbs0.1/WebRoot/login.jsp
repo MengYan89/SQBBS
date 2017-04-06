@@ -132,6 +132,15 @@
    	  				alert("登陆出错");
    	  			},
    	  			success: function(data){//返回成功执行回调函数
+   	  				if(data == -1){
+   	  					alert("用户名和密码不能为空");
+   	  				}else if(data == -2){
+   	  					alert("用户名不存在");
+   	  				}else if(data == -3){
+   	  					alert("用户名或密码错误");
+   	  				}else{
+   	  					window.location.href = "${basePath}"
+   	  				}
    	  			}
    	  		});
 

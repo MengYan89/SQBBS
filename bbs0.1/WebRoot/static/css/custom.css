@@ -65,14 +65,17 @@
 		.fr {float: right;}/*向右浮动*/
 		ul li{list-style: none;}/*去除li前的标记*/
 		.banner { 
+			text-align:center;
 			height: 360px;/*高度*/
 			width: 1024px;/*宽度*/
+			margin:0 auto;
 			margin-top: 2px;/*设置上外边框*/
 			position: relative;/*相对定位*/
 			overflow: hidden;/*隐藏溢出内容*/
 			
 		}
 		.banner .content{
+			text-align:center;
 			width: 1060px;/*宽度*/
 			height: 360px;/*高度*/
 			margin: 20px auto;/*上下外边距为20px，左右自动适应*/
