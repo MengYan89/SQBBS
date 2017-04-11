@@ -2,7 +2,6 @@ package util;
 
 import java.lang.reflect.Field;
 
-import javax.persistence.Column;
 
 import annotation.Member;
 import annotation.Table;

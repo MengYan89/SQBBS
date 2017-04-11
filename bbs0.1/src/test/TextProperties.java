@@ -9,7 +9,7 @@ import util.DataBaseUtils;
 
 public class TextProperties {
 	public static void main(String[] args) {
-			InputStream inputStream = TextProperties.class.getClassLoader().getResourceAsStream("jdbc.properties");
+			InputStream inputStream = TextProperties.class.getClassLoader().getResourceAsStream("config/jdbc.properties");
 			Properties p = new Properties();
 			try {
 				p.load(inputStream);
@@ -21,7 +21,7 @@ public class TextProperties {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			DataBaseUtils.config("jdbc.properties");
+			DataBaseUtils.config("config/jdbc.properties");
 			Connection conn = DataBaseUtils.getConnection();
 			System.out.println(conn);
     }

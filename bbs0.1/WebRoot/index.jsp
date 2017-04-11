@@ -62,7 +62,27 @@
     </div>
     <!-- 引用轮播框的js -->
     <script language="javascript" src="${basePath}/static/js/index.banner.js"></script>
-    
+
+	  <div style='height: 350px;border:1px solid #ccc; margin-top: 5px'>
+		  <div class="categoey">
+			  <div class="title">最新枪支</div>
+			  <ul class="items">
+				  <li>
+					  <div class="item">
+						  <div style="width: 160px; height: 140px ; background:#000000;"></div>
+						  <div style="color: #1C1C1C; text-align: center;">枪</div>
+					  </div>
+
+				  </li>
+				  <li class="item"></li>
+				  <li class="item"></li>
+				  <div style="clear: both"></div>
+
+			  </ul>
+
+		  </div>
+
+	  </div>
     <%@include file="common/footer.jsp" %>
   </body>
 </html>

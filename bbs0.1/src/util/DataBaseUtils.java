@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import javax.faces.view.facelets.Metadata;
 
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
@@ -47,7 +46,7 @@ public class DataBaseUtils {
 	}
 	
 	static {
-		config("jdbc.properties");
+		config("config/jdbc.properties");
 	}
 	
 	/*
