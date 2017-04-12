@@ -18,7 +18,7 @@ public class TestDML {
 		String id = UUID.randomUUID() + "";
 		String createTime = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 		DataBaseUtils DB = new DataBaseUtils();
-		DB.update("INSERT INTO t_user(id,username,password,sex,create_time,is_delete,address,telephone) "
+		DB.update("INSERT INTO t_user(map_id,username,password,sex,create_time,is_delete,address,telephone) "
 		        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)", id,"天下",123456,1,createTime,0,"保密","保密");
 		//Map map = DB.queryForMap("select * from t_user where username = ?","张三");
 		//System.out.println(map);

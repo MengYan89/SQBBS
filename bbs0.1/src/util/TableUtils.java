@@ -36,13 +36,19 @@ public class TableUtils {
 			}else{
 				sb.append(" NOT NULL,\n");
 				if(member.primaryKey()){
-					primaryKey = "PRIMARY KEY ("+field+")";
+					if(primaryKey.isEmpty()){
+						primaryKey = "PRIMARY KEY ("+field;
+					}else {
+						primaryKey += ","+field;
+					}
+
 				}
 				
 			}
 		}
 		
 		if(!StringUtils.isEmpty(primaryKey)){
+			primaryKey += ")";
 			sb.append("\t").append(primaryKey);
 		}
 		sb.append("\n) DEFAULT CHARSET=utf8");

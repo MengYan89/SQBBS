@@ -1,8 +1,10 @@
 package util;
 
+import java.beans.IntrospectionException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -260,10 +262,25 @@ public class DataBaseUtils {
 		//System.out.println(obj);
 		return obj;
 	}
-	
-	
-	
-	
-	
+
+	public static void save(Object obj) throws IllegalAccessException, IntrospectionException, InvocationTargetException{
+		String sql = SaveUtils.getInsertSQL(obj);
+		Connection connection = getConnection();
+		PreparedStatement statement = null;
+		try {
+			statement = (PreparedStatement) connection.prepareStatement(sql);
+			statement.executeUpdate();
+		}catch (SQLException e){
+			e.printStackTrace();
+		}finally {
+			closeConnection(connection,statement,null);
+		}
+
+	}
+
+
+
+
+
 
 }

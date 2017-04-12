@@ -1,0 +1,171 @@
+@CHARSET "UTF-8";
+        *{
+			/*去除浏览器padding与margin的默认值*/
+			padding:0 ; /*外边距*/
+			margin:0 ; /*内边距*/
+		}
+		body{
+			background-color: #585858;
+		}
+		/*标题栏样式*/
+		.header {
+			text-align:center;
+			height: 60px;  /*高度*/
+			background: #2E2E2E; /*背景颜色*/
+		}
+		/*标题栏中logo的样式*/
+		.header .logo{
+			color: #fff ; /*字体颜色*/
+			line-height: 72px ;/*行高*/
+			font-size: 30px; /*字体大小*/
+			margin-left: 20px;/*左外边距*/
+			display: inline-block;/*定义为行内块元素*/
+			font-weight: 500 ;/*设置字体粗细*/
+			float: left ; /*向左浮动*/
+		}
+		/*标题栏中导航的样式*/
+		.header ul li {
+			list-style: none ; /*去掉li前的小圆点标识*/
+			float: left ;/*向左浮动*/
+			color: #fff ; /*字体颜色*/
+			display: inline-block;/*定义为行内块元素*/
+			line-height: 72px ;/*行高*/
+			width: 112px ; /*段落宽度*/
+			height: 60px ; /*段落高度*/
+			text-align: center ; /*将文本排列到中间*/
+			cursor: pointer ; /*设置光标为pointer*/ 
+		}
+		/*导航中第一个元素*/
+		.header ul li.first{
+			margin-left: 30px;/*左外边距*/
+		}
+		/*修改默认a标签*/
+		a {
+		
+			color: #fff;/*字体颜色*/
+			text-decoration: none ;/*去除a标签默认的文本修饰*/
+			
+		}
+		/*为导航按钮添加hover事件*/
+		/*hover事件:修改鼠标所在元素的样式*/
+		.header ul li:hover{
+			background: #1C1C1C ;/*背景颜色*/
+		}
+		/*设置登陆注册样式*/
+		.header .login {
+			float: right ;/*向右浮动*/
+			color: #fff;/*字体颜色*/
+			line-height: 72px ;/*行高*/
+			margin-right: 20px;/*右外边距*/
+		}
+		
+		/*轮播图样式*/
+		/*fl fr优化css*/
+		.fl {float: left;}/*向左浮动*/
+		.fr {float: right;}/*向右浮动*/
+		ul li{list-style: none;}/*去除li前的标记*/
+		.banner { 
+			text-align:center;
+			height: 360px;/*高度*/
+			width: 1024px;/*宽度*/
+			margin:0 auto;
+			margin-top: 2px;/*设置上外边框*/
+			position: relative;/*相对定位*/
+			overflow: hidden;/*隐藏溢出内容*/
+			
+		}
+		.banner .content{
+			text-align:center;
+			width: 1060px;/*宽度*/
+			height: 360px;/*高度*/
+			margin: 20px auto;/*上下外边距为20px，左右自动适应*/
+			position: relative;
+			
+		}
+		
+		.banner ul li img {
+			width:1024px;/*宽度*/
+			height:360px;/*高度*/
+		}
+		
+		.banner .content ul{
+			width: 10000px;/*宽度*/
+			margin-left: -1024px;/*左外边距*/
+		}
+		.banner_left, .banner_right{
+		   width: 160px;/*宽度*/
+		   height: 360px;/*高度*/
+  		   display: inline-block;/*定义为行内块元素*/
+  		   position: absolute;/*绝对定位*/
+ 		   background: #000000;/*颜色*/
+ 		   left: -60px;
+ 		   top: 0;
+ 		   opacity: 0.6;/*透明度*/
+		}
+
+		.banner_right{
+ 		   width: 160px;/*宽度*/
+ 		   height: 360px;/*高度*/
+ 		   display: inline-block;/*定义为行内块元素*/
+ 		   position: absolute;/*绝对定位*/
+ 		   background: #000000;/*颜色*/
+ 		   left: 924px;
+  		   top: 0;
+ 		   opacity: 0.6;/*透明度*/
+		}
+		
+		
+		.btn_left ,.btn_right{
+			display: inline-block;/*定义为行内块元素*/
+			width: 30px;/*宽度*/
+			height: 150px;/*高度*/
+			background: url(../img/dir.png) no-repeat;
+			position: absolute;/*绝对定位*/
+			left: 120px;
+			top: 135px;
+			opacity: 0;/*透明度*/
+			transition: all ease 0.6s;/*使用0.6s作为淡出过渡*/
+			cursor: pointer;/*设置光标为pointer*/
+		}
+
+		.btn_right{
+			background-position: -29px 0;/*得到箭头图像的另一半*/
+			position: absolute;/*绝对定位*/
+			left: 16px;
+			top: 135px;
+		}
+        /*鼠标移至content区域上时改变btn透明度的hover事件*/
+        .banner .content:hover .btn_left{
+   		    opacity: 1;
+        }
+
+		.banner .content:hover .btn_right{
+            opacity: 1;
+		}
+		
+		.footer {
+			background: #2E2E2E;;
+			color: #fff ;
+			text-align: center ;
+			height: 50px ;
+			line-height:50px;
+			font-family: 微软雅黑;
+		}
+
+		.categoey .title{
+			margin-bottom: 10px;
+			margin-top: 30px;
+			border-bottom: 1px solid #cac5c5;
+			height: 30px;
+			font-size: 18px;
+			color: #000000;
+
+		}
+
+		.categoey .items .item{
+			width: 160px;
+			height: 160px;
+			background: #ffffff;
+			margin: 20px;
+			float: left;
+		}
