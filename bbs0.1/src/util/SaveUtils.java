@@ -3,12 +3,14 @@ package util;
 import annotation.Member;
 import annotation.Table;
 
+import java.awt.*;
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Map;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by mengyan on 2017/4/12.
@@ -51,5 +53,39 @@ public class SaveUtils {
         sb.append(sb1.toString()).append("VALUES ").append(sb2.toString()).append(";");
 
         return sb.toString();
+    }
+
+    public static String getIsExistSQL(Object obj){
+        StringUtils su = new StringUtils();
+        StringBuilder sb = new StringBuilder();
+        AnnotationUtils au = new AnnotationUtils();
+        Class clazz = obj.getClass();
+        String tablename = au.getTableName(clazz);
+        List<String> keylist = au.getMemberTheKey(clazz);
+        sb.append("SELECT * FROM ").append(tablename).append(" WHERE ");
+        for(int i = 0; i<keylist.size();i++){
+            Object getValue = null;
+            try {
+                PropertyDescriptor pd = new PropertyDescriptor(su.columnToProperty(keylist.get(i)),clazz);
+                Method get = pd.getReadMethod();
+                getValue = get.invoke(obj,new Object[]{});
+            }catch (IntrospectionException e){
+                e.printStackTrace();
+            }catch (InvocationTargetException e){
+                e.printStackTrace();
+            }catch (IllegalAccessException e){
+                e.printStackTrace();
+            }
+
+            if (i != keylist.size()-1) {
+                sb.append(keylist.get(i)).append("=").append(getValue).append(" AND");
+            }else {
+                sb.append(" ").append(keylist.get(i)).append("=").append(getValue).append(";");
+            }
+        }
+
+        return sb.toString();
+
+
     }
 }

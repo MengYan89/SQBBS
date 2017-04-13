@@ -263,10 +263,29 @@ public class DataBaseUtils {
 		return obj;
 	}
 
-	public static void save(Object obj) throws IllegalAccessException, IntrospectionException, InvocationTargetException{
-		String sql = SaveUtils.getInsertSQL(obj);
+	/*
+	 *将一个数据储存进数据库
+	 * @param obj
+	 * @return void
+	 * @throws IntrospectionException
+	 * @throws InvocationTargetException
+	 * @throws IllegalAccessException
+	 * @throws SQLException
+	 */
+
+	public static void save(Object obj){
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
+		String sql = null;
+		try {
+			sql = SaveUtils.getInsertSQL(obj);
+		}catch (IntrospectionException e1){
+			e1.printStackTrace();
+		}catch (InvocationTargetException e2){
+			e2.printStackTrace();
+		}catch (IllegalAccessException e3){
+			e3.printStackTrace();
+		}
 		try {
 			statement = (PreparedStatement) connection.prepareStatement(sql);
 			statement.executeUpdate();
@@ -275,6 +294,10 @@ public class DataBaseUtils {
 		}finally {
 			closeConnection(connection,statement,null);
 		}
+
+
+
+
 
 	}
 

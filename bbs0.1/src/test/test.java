@@ -1,6 +1,7 @@
 package test;
 
 import com.my.bean.Logistics;
+import util.AnnotationUtils;
 import util.DataBaseUtils;
 import util.SaveUtils;
 
@@ -14,6 +15,7 @@ public class test {
     public static void main(String[] ag) throws IllegalAccessException, IntrospectionException, InvocationTargetException {
         Logistics logistics = new Logistics();
         DataBaseUtils DB = new DataBaseUtils();
+        SaveUtils su = new SaveUtils();
 
         logistics.setMapId(0);
         logistics.setLogisticsId(1);
@@ -28,8 +30,8 @@ public class test {
 
         System.out.println(logistics);
 
-        SaveUtils su = new SaveUtils();
-        System.out.println(su.getInsertSQL(logistics));
+
+        System.out.println(su.getIsExistSQL(logistics));
 
     }
 }
