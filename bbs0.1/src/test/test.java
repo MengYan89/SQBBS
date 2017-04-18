@@ -18,20 +18,22 @@ public class test {
         SaveUtils su = new SaveUtils();
 
         logistics.setMapId(0);
-        logistics.setLogisticsId(1);
-        logistics.setLogisticsName("应援训练");
-        logistics.setLogisticsTime("00:50");
-        logistics.setCaptainlevel(40);
-        logistics.setTeamsnumber(4);
-        logistics.setManpower(0);
-        logistics.setAmmunition(145);
-        logistics.setPations(145);
-        logistics.setComponents(0);
+        logistics.setLogisticsId(2);
+        logistics.setLogisticsName("梯队集训");
+        logistics.setLogisticsTime("3:00");
+        logistics.setCaptainlevel(45);
+        logistics.setTeamsnumber(5);
+        logistics.setManpower(550);
+        logistics.setAmmunition(0);
+        logistics.setPations(0);
+        logistics.setComponents(350);
+        logistics.setProps("人形契约");
 
         System.out.println(logistics);
 
-
+        System.out.println(DB.queryForBoolean("SELECT * FROM t_logistics WHERE map_id=1 AND logistics_id=1;"));
         System.out.println(su.getIsExistSQL(logistics));
+        DB.save(logistics);
 
     }
 }

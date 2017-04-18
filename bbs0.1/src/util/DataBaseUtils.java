@@ -147,6 +147,7 @@ public class DataBaseUtils {
 			
 			
 		} catch (SQLException e) {
+
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
@@ -164,7 +165,7 @@ public class DataBaseUtils {
 	 * @throws SQLException
 	 * 
 	 */
-	public static Map<String,Object> queryForMap(String sql,Object...objects) throws SQLException{
+	public static Map<String,Object> queryForMap(String sql,Object...objects){
 		Map<String , Object> result = new HashMap<String, Object>();
 		List<Map<String,Object>> list = queryForList(sql, objects);
 		if(list.size() != 1){
@@ -194,9 +195,8 @@ public class DataBaseUtils {
 		} catch (InstantiationException | IllegalAccessException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		} catch (SQLException e){
-			e.printStackTrace();
 		}
+
 		
 		if(map == null) return null;
 		//遍历map
@@ -263,6 +263,27 @@ public class DataBaseUtils {
 		return obj;
 	}
 
+	public static  boolean queryForBoolean(String sql){
+		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
+		Connection connection = getConnection();
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		try
+		{
+			statement = (PreparedStatement) connection.prepareStatement(sql);
+			rs = (ResultSet) statement.executeQuery();
+			if(rs.next()){
+				return true;
+			}else {
+				return false;
+			}
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
+		return false;
+
+	}
+
 	/*
 	 *将一个数据储存进数据库
 	 * @param obj
@@ -277,6 +298,13 @@ public class DataBaseUtils {
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
 		String sql = null;
+		SaveUtils su = new SaveUtils();
+		sql = su.getIsExistSQL(obj);
+		if (queryForBoolean(sql)){
+			System.out.println("数据已存在");
+			return;
+		}
+
 		try {
 			sql = SaveUtils.getInsertSQL(obj);
 		}catch (IntrospectionException e1){
