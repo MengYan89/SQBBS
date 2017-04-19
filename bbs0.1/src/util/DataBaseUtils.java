@@ -27,7 +27,7 @@ public class DataBaseUtils {
 	private static String password ;
 	private static String dataBaseName ;
 	
-	/*
+	/**
 	 * 配置基本信息
 	 * @return void
 	 */
@@ -51,7 +51,7 @@ public class DataBaseUtils {
 		config("config/jdbc.properties");
 	}
 	
-	/*
+	/**
 	 * 获取数据库连接
 	 * @return Connection
 	 */
@@ -69,7 +69,7 @@ public class DataBaseUtils {
 	    return connection;
 	}
 	
-	/*
+	/**
 	 * 关闭资源
 	 * @param connection
 	 * @param statement
@@ -88,7 +88,7 @@ public class DataBaseUtils {
 		}
 	}
 	
-	/*
+	/**
 	 * 数据库操作
 	 * @param sql
 	 * @param objects
@@ -113,7 +113,7 @@ public class DataBaseUtils {
 		}
 	}
 	
-	/*
+	/**
 	 * 查询出数据并返回List
 	 * @param sql
 	 * @param objects
@@ -175,7 +175,7 @@ public class DataBaseUtils {
 		return result;
 	}
 	
-	/*
+	/**
 	 * 查询出一个数据，并返回一个JavaBean
 	 * @param sql
 	 * @param clazz
@@ -263,6 +263,12 @@ public class DataBaseUtils {
 		return obj;
 	}
 
+	/**
+	 * 查询是否存在
+	 * @param sql
+	 * @return
+	 */
+
 	public static  boolean queryForBoolean(String sql){
 		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
 		Connection connection = getConnection();
@@ -284,7 +290,7 @@ public class DataBaseUtils {
 
 	}
 
-	/*
+	/**
 	 *将一个数据储存进数据库
 	 * @param obj
 	 * @return void
@@ -298,8 +304,8 @@ public class DataBaseUtils {
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
 		String sql = null;
-		SaveUtils su = new SaveUtils();
-		sql = su.getIsExistSQL(obj);
+
+		sql = SaveUtils.getIsExistSQL(obj);
 		if (queryForBoolean(sql)){
 			System.out.println("数据已存在");
 			return;

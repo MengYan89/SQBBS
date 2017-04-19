@@ -4,6 +4,7 @@ import com.my.bean.Logistics;
 import util.AnnotationUtils;
 import util.DataBaseUtils;
 import util.SaveUtils;
+import util.UpdateUtils;
 
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
@@ -16,6 +17,8 @@ public class test {
         Logistics logistics = new Logistics();
         DataBaseUtils DB = new DataBaseUtils();
         SaveUtils su = new SaveUtils();
+        UpdateUtils uu = new UpdateUtils();
+
 
         logistics.setMapId(0);
         logistics.setLogisticsId(2);
@@ -26,14 +29,16 @@ public class test {
         logistics.setManpower(550);
         logistics.setAmmunition(0);
         logistics.setPations(0);
-        logistics.setComponents(350);
-        logistics.setProps("人形契约");
+        //logistics.setComponents(350);
+        //logistics.setProps(null);
 
         System.out.println(logistics);
 
         System.out.println(DB.queryForBoolean("SELECT * FROM t_logistics WHERE map_id=1 AND logistics_id=1;"));
         System.out.println(su.getIsExistSQL(logistics));
-        DB.save(logistics);
+        System.out.println(         uu.getUpdateSQL(logistics));
+         uu.getUpdateSQL(logistics);
+
 
     }
 }
